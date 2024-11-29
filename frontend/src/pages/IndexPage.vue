@@ -1,6 +1,8 @@
 <template>
   <q-page class="row items-center justify-evenly">
-    <h1>SUNHEART</h1>
+    <q-img
+      src="/assets/sunheartrainbowlogo.jpg"
+    />
     <example-component
       title="Example component"
       active
