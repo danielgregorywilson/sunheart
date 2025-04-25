@@ -3,48 +3,40 @@
     <q-img
       src="/assets/sunheartrainbowlogo.jpg"
     />
-    <example-component
-      title="Example component"
-      active
-      :todos="todos"
-      :meta="meta"
-    ></example-component>
+    <TrackDetail
+      v-for="track in tracks"
+      :key="track[0]"
+      :title="track[0]"
+      :clip="track[1]"
+    ></TrackDetail>
   </q-page>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
-import { Todo, Meta } from 'components/models';
-import ExampleComponent from 'components/ExampleComponent.vue';
+import { onMounted, ref } from 'vue';
+import TrackDetail from 'src/components/TrackDetail.vue';
 
-defineOptions({
-  name: 'IndexPage'
-});
+const spreadsheetId = '1-2DJ1WPl7zfVbCKi5yr_IC7U_G43U-oSSkvTle17f5U'
+const apiKey = 'AIzaSyCFNzz0b7zqpgWvOtdY983CPs_84cHS2lk';
+const url = `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/Sheet1?key=${apiKey}`;
 
-const todos = ref<Todo[]>([
-  {
-    id: 1,
-    content: 'ct1'
-  },
-  {
-    id: 2,
-    content: 'ct2'
-  },
-  {
-    id: 3,
-    content: 'ct3'
-  },
-  {
-    id: 4,
-    content: 'ct4'
-  },
-  {
-    id: 5,
-    content: 'ct5'
+const tracks = ref([]);
+
+async function fetchGoogleSheetData() {
+  try {
+    // Fetch data from Google Sheets API
+    const response = await fetch(url);
+    const data = await response.json();
+    
+    // Extract rows from the data
+    const rows = data.values;
+    tracks.value = rows.slice(1) // Skip the first row (headers)
+  } catch (error) {
+      console.error('Error fetching Google Sheets data:', error);
   }
-]);
+}
 
-const meta = ref<Meta>({
-  totalCount: 1200
-});
+onMounted(() => { 
+  fetchGoogleSheetData()
+})
 </script>
