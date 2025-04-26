@@ -1,14 +1,19 @@
 <template>
-  <q-page class="row items-center justify-evenly">
+  <q-page class="">
     <q-img
       src="/assets/sunheartrainbowlogo.jpg"
     />
-    <TrackDetail
+    <div
       v-for="track in tracks"
-      :key="track[0]"
-      :title="track[0]"
-      :clip="track[1]"
-    ></TrackDetail>
+      :key="track[0]" class="row justify-center"
+    >
+      <TrackDetail
+        :title="track[0]"
+        :clip="track[1]"
+        :caption="track[2]"
+      ></TrackDetail>
+    </div>
+    
   </q-page>
 </template>
 
