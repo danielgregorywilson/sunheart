@@ -29,7 +29,7 @@
     >
       <TrackDetail
         :title="track[0]"
-        :clip="track[1]"
+        :video_id="track[1]"
         :caption="track[2]"
       ></TrackDetail>
     </div>
