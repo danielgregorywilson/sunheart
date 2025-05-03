@@ -1,8 +1,28 @@
 <template>
   <q-page class="">
     <q-img
+      src="/assets/sunheartinwords768X1024.jpg"
+    />
+    <q-img
       src="/assets/sunheartrainbowlogo.jpg"
     />
+    <div class="row">
+      <q-img
+        class="col"
+        src="/assets/davidee2.jpg"
+      />
+      <q-img
+        class="col"
+        src="/assets/omni2.jpg"
+      />
+      <q-img
+        class="col"
+        src="/assets/dawn.jpg"
+      />
+    </div>
+    <h5>Tantric Devotional New Age Acid Folk Feminist Goddess Grunge</h5>
+
+    
     <div
       v-for="track in tracks"
       :key="track[0]" class="row justify-center"

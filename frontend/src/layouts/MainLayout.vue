@@ -2,20 +2,30 @@
   <q-layout view="lHh Lpr lFf">
     <q-header elevated>
       <q-toolbar>
-        <q-btn
-          flat
-          dense
-          round
-          icon="menu"
-          aria-label="Menu"
-          @click="toggleLeftDrawer"
-        />
+        <div class="q-ml-auto q-gutter-sm q-display-none q-display-md-flex">
+          <q-btn
+            v-for="link in linksList"
+            :key="link.title"
+            :label="link.title"
+            :icon="link.icon"
+            flat
+            dense
+            :to="link.link"
+            target="_blank"
+            rel="noopener"
+          />
+        </div>
 
-        <q-toolbar-title>
-          Quasar App
-        </q-toolbar-title>
-
-        <div>Quasar v{{ $q.version }}</div>
+        <div class="q-ml-auto q-display-xs">
+          <q-btn
+            flat
+            dense
+            round
+            icon="menu"
+            aria-label="Menu"
+            @click="toggleLeftDrawer"
+          />
+        </div>
       </q-toolbar>
     </q-header>
 
@@ -25,12 +35,9 @@
       bordered
     >
       <q-list>
-        <q-item-label
-          header
-        >
+        <q-item-label header>
           Essential Links
         </q-item-label>
-
         <EssentialLink
           v-for="link in linksList"
           :key="link.title"
@@ -55,46 +62,28 @@ defineOptions({
 
 const linksList: EssentialLinkProps[] = [
   {
-    title: 'Docs',
-    caption: 'quasar.dev',
-    icon: 'school',
-    link: 'https://quasar.dev'
+    title: 'Home',
+    caption: 'Always coming home',
+    icon: 'home',
+    link: '/'
   },
   {
-    title: 'Github',
-    caption: 'github.com/quasarframework',
+    title: 'Announcements',
+    caption: 'News and Muse from Sunheart Central',
     icon: 'code',
-    link: 'https://github.com/quasarframework'
+    link: 'https://sunheartmusic.blogspot.com/'
   },
   {
-    title: 'Discord Chat Channel',
-    caption: 'chat.quasar.dev',
+    title: 'Contact',
+    caption: 'We are here now. Connect.',
     icon: 'chat',
-    link: 'https://chat.quasar.dev'
+    link: '/contact'
   },
   {
-    title: 'Forum',
-    caption: 'forum.quasar.dev',
+    title: 'More good music',
+    caption: 'Our friends make lovely sounds',
     icon: 'record_voice_over',
-    link: 'https://forum.quasar.dev'
-  },
-  {
-    title: 'Twitter',
-    caption: '@quasarframework',
-    icon: 'rss_feed',
-    link: 'https://twitter.quasar.dev'
-  },
-  {
-    title: 'Facebook',
-    caption: '@QuasarFramework',
-    icon: 'public',
-    link: 'https://facebook.quasar.dev'
-  },
-  {
-    title: 'Quasar Awesome',
-    caption: 'Community Quasar projects',
-    icon: 'favorite',
-    link: 'https://awesome.quasar.dev'
+    link: '/ourfriends'
   }
 ];
 
@@ -104,3 +93,23 @@ function toggleLeftDrawer () {
   leftDrawerOpen.value = !leftDrawerOpen.value;
 }
 </script>
+
+<style scoped>
+/* Hide on md and up */
+.q-display-xs {
+  display: none;
+}
+@media (max-width: 959px) {
+  .q-display-xs {
+    display: inline-block !important;
+  }
+  .q-display-md-flex {
+    display: none !important;
+  }
+}
+/* Show on md and up */
+.q-display-md-flex {
+  display: flex;
+  align-items: center;
+}
+</style>
