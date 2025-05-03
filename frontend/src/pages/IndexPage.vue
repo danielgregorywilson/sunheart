@@ -1,23 +1,23 @@
 <template>
   <q-page class="">
     <q-img
-      src="src/assets/sunheartinwords768X1024.jpg"
+      src="../assets/sunheartinwords768X1024.jpg"
     />
     <q-img
-      src="src/assets/sunheartrainbowlogo.jpg"
+      src="../assets/sunheartrainbowlogo.jpg"
     />
     <div class="row">
       <q-img
         class="col"
-        src="src/assets/davidee2.jpg"
+        src="../assets/davidee2.jpg"
       />
       <q-img
         class="col"
-        src="src/assets/omni2.jpg"
+        src="../assets/omni2.jpg"
       />
       <q-img
         class="col"
-        src="src/assets/dawn.jpg"
+        src="../assets/dawn.jpg"
       />
     </div>
     <h5>Tantric Devotional New Age Acid Folk Feminist Goddess Grunge</h5>
