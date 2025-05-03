@@ -3,7 +3,7 @@
     <!-- <p>{{ title }}</p> -->
     <div class="video-container custom-player">
       <iframe 
-          :src="'https://www.youtube-nocookie.com/embed/' + props.video_id + '?autoplay=0&controls=1&disablekb=1&modestbranding=1&showinfo=&rel=0&iv_load_policy=3&fs=0&color=white&playsinline=1&loop=0'"
+          :src="'https://www.youtube-nocookie.com/embed/' + props.video_id + '?autoplay=0&controls=1&disablekb=1&modestbranding=1&showinfo=0&rel=0&iv_load_policy=3&fs=0&color=white&playsinline=1&loop=0'"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowfullscreen>
       </iframe>
