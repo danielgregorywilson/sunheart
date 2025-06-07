@@ -1,7 +1,7 @@
 <template>
   <q-layout view="lHh Lpr lFf">
     <q-header elevated>
-      <q-toolbar>
+      <q-toolbar id="main-toolbar">
         <div class="q-ml-auto q-gutter-sm">
           <q-btn
             v-for="link in linksList"
@@ -24,6 +24,16 @@
     </q-page-container>
   </q-layout>
 </template>
+
+<style>
+body {
+  background-color: #000 !important;
+}
+
+#main-toolbar {
+  background-color: rgb(70, 65, 143);
+}
+</style>
 
 <script setup lang="ts">
 import { EssentialLinkProps } from 'components/EssentialLink.vue';
@@ -60,7 +70,3 @@ const linksList: EssentialLinkProps[] = [
 ];
 
 </script>
-
-<style scoped>
-
-</style>

@@ -1,5 +1,5 @@
 <template>
-  <div style="width: 500px;">
+  <div class="q-mt-md" style="width: 500px;">
     <!-- <p>{{ title }}</p> -->
     <div class="video-container custom-player">
       <iframe 
@@ -17,7 +17,7 @@
       frameborder="0" 
       allowfullscreen>
     </iframe> -->
-    <p class="q-mt-sm q-mb-md">{{ caption }}</p>
+    <p class="track-caption q-mt-sm q-mb-md">{{ caption }}</p>
   </div>
 </template>
 
@@ -46,6 +46,12 @@
     .custom-player {
         box-shadow: 0 4px 8px rgba(0,0,0,0.2);
         border-radius: 4px;
+    }
+
+    .track-caption {
+        font-size: 16pt;
+        color: #ddd;
+        text-align: center;
     }
 </style>
 
