@@ -9,20 +9,20 @@
       </div>
       <div class="row q-mt-md q-gutter-md" style="max-width: 600px; margin: auto;">
         <q-img
-          class="col"
+          class="headshot-regular"
           src="../assets/davidee2.jpg"
         />
         <q-img
-          class="col"
+          class="headshot-large"
           src="../assets/omni2.jpg"
         />
         <q-img
-          class="col"
+          class="headshot-regular"
           src="../assets/dawn.jpg"
         />
       </div>
       <div id="description" class="row">
-        <h4 id="title">Tantric Devotional New Age Acid Folk Feminist Goddess Grunge</h4>  
+        <h4 id="description-text">Tantric Devotional New Age Acid Folk Feminist Goddess Grunge</h4>  
       </div>
       
     </div>
@@ -77,19 +77,29 @@ onMounted(() => {
   background-image: url('../assets/sunheartinwords768X1024.jpg');
   padding: 3vw;
 
+  .headshot-regular {
+    width: 170px;
+    height: 215px;
+    margin-top: 46px;
+  }
+  .headshot-large {
+    width: 170px;
+    height: 245px;
+  }
+
   #description {
     max-width: 700px;
     margin: auto;
     background-color: rgba(0, 0, 0, 0.5);
-  }
-}
 
-#title {
-  color: white;
-  text-align: center;
-  font-weight: 900;
-  margin-top: 10px;
-  margin-bottom: 10px;;
+    #description-text {
+      color: white;
+      text-align: center;
+      font-weight: 900;
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+  }
 }
 
 </style>
