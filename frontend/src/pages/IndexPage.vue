@@ -1,13 +1,13 @@
 <template>
   <q-page class="">
     <div id="hero">
-      <div class="row">
+      <div class="row" style="max-width: 1000px; margin: auto;">
         <q-img
           id="logo"
           src="../assets/sunheartrainbowlogo.jpg"
         />
       </div>
-      <div class="row q-mt-md q-gutter-md">
+      <div class="row q-mt-md q-gutter-md" style="max-width: 600px; margin: auto;">
         <q-img
           class="col"
           src="../assets/davidee2.jpg"
@@ -21,8 +21,8 @@
           src="../assets/dawn.jpg"
         />
       </div>
-      <div class="row">
-        <h5 id="title">Tantric Devotional New Age Acid Folk Feminist Goddess Grunge</h5>  
+      <div id="description" class="row">
+        <h4 id="title">Tantric Devotional New Age Acid Folk Feminist Goddess Grunge</h4>  
       </div>
       
     </div>
@@ -75,15 +75,21 @@ onMounted(() => {
 <style scoped>
 #hero {
   background-image: url('../assets/sunheartinwords768X1024.jpg');
-  width: 100vw;
-  height: 100vw;
   padding: 3vw;
+
+  #description {
+    max-width: 700px;
+    margin: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
 }
 
 #title {
   color: white;
   text-align: center;
   font-weight: 900;
+  margin-top: 10px;
+  margin-bottom: 10px;;
 }
 
 </style>
