@@ -4,21 +4,21 @@
       <div class="row" style="max-width: 1000px; margin: auto;">
         <q-img
           id="logo"
-          src="../assets/sunheartrainbowlogo.jpg"
+          src="src/assets/sunheartrainbowlogo.jpg"
         />
       </div>
       <div class="row headshots q-mt-xs q-gutter-md">
         <q-img
           class="headshot-regular"
-          src="../assets/davidee2.jpg"
+          src="src/assets/davidee2.jpg"
         />
         <q-img
           class="headshot-large"
-          src="../assets/omni2.jpg"
+          src="src/assets/omni2.jpg"
         />
         <q-img
           class="headshot-regular"
-          src="../assets/dawn.jpg"
+          src="src/assets/dawn.jpg"
         />
       </div>
       <div id="description" class="row">
@@ -37,6 +37,7 @@
         :title="track[0]"
         :video_id="track[1]"
         :caption="track[2]"
+        :cover_art="track[3]"
       ></TrackDetail>
     </div>
     
