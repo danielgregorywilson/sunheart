@@ -7,7 +7,7 @@
           src="../assets/sunheartrainbowlogo.jpg"
         />
       </div>
-      <div class="row q-mt-md q-gutter-md" style="max-width: 600px; margin: auto;">
+      <div class="row headshots q-mt-xs q-gutter-md">
         <q-img
           class="headshot-regular"
           src="../assets/davidee2.jpg"
@@ -77,14 +77,27 @@ onMounted(() => {
   background-image: url('../assets/sunheartinwords768X1024.jpg');
   padding: 3vw;
 
+  .headshots {
+    display: flex;
+    justify-content: center;
+  }
+
   .headshot-regular {
     width: 170px;
     height: 215px;
     margin-top: 46px;
+    @media screen and (max-width: 600px) {
+      width: 28%;
+      height: 150px;
+    }
   }
   .headshot-large {
     width: 170px;
     height: 245px;
+    @media screen and (max-width: 600px) {
+      width: 28%;
+      height: 180px; 
+    }
   }
 
   #description {
