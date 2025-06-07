@@ -4,21 +4,21 @@
       <div class="row" style="max-width: 1000px; margin: auto;">
         <q-img
           id="logo"
-          src="src/assets/sunheartrainbowlogo.jpg"
+          src="../assets/sunheartrainbowlogo.jpg"
         />
       </div>
       <div class="row headshots q-mt-xs q-gutter-md">
         <q-img
           class="headshot-regular"
-          src="src/assets/davidee2.jpg"
+          src="../assets/davidee2.jpg"
         />
         <q-img
           class="headshot-large"
-          src="src/assets/omni2.jpg"
+          src="../assets/omni2.jpg"
         />
         <q-img
           class="headshot-regular"
-          src="src/assets/dawn.jpg"
+          src="../assets/dawn.jpg"
         />
       </div>
       <div id="description" class="row">

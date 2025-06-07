@@ -4,7 +4,7 @@
     <q-img 
       v-if="showCover"
       class="cover-art q-mb-md"
-      :src="'src/assets/covers/' + props.cover_art"
+      :src="'../assets/covers/' + props.cover_art"
       :alt="props.title + ' cover art'"
       @click="playVideo"
     />
