@@ -4,21 +4,21 @@
       <div class="row" style="max-width: 1000px; margin: auto;">
         <q-img
           id="logo"
-          src="../assets/sunheartrainbowlogo.jpg"
+          src="/images/sunheartrainbowlogo.jpg"
         />
       </div>
       <div class="row headshots q-mt-xs q-gutter-md">
         <q-img
           class="headshot-regular"
-          src="../assets/davidee2.jpg"
+          src="/images/davidee2.jpg"
         />
         <q-img
           class="headshot-large"
-          src="../assets/omni2.jpg"
+          src="/images/omni2.jpg"
         />
         <q-img
           class="headshot-regular"
-          src="../assets/dawn.jpg"
+          src="/images/dawn.jpg"
         />
       </div>
       <div id="description" class="row">
@@ -75,7 +75,7 @@ onMounted(() => {
 
 <style scoped>
 #hero {
-  background-image: url('../assets/sunheartinwords768X1024.jpg');
+  background-image: url('/images/sunheartinwords768X1024.jpg');
   padding: 3vw;
 
   .headshots {
