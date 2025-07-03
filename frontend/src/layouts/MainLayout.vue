@@ -11,9 +11,7 @@
             :icon="link.icon"
             flat
             dense
-            :to="link.link"
-            target="_blank"
-            rel="noopener"
+            @click="onClick(link)"
           />
         </div>
       </q-toolbar>
@@ -36,7 +34,10 @@ body {
 </style>
 
 <script setup lang="ts">
-import { EssentialLinkProps } from 'components/EssentialLink.vue';
+import { EssentialLinkProps } from 'src/types';
+import { useRouter } from 'vue-router';
+
+const router = useRouter();
 
 defineOptions({
   name: 'MainLayout'
@@ -53,6 +54,7 @@ const linksList: EssentialLinkProps[] = [
     title: 'Announcements',
     caption: 'News and Muse from Sunheart Central',
     icon: 'campaign',
+    external: true,
     link: 'https://sunheartmusic.blogspot.com/'
   },
   {
@@ -68,5 +70,13 @@ const linksList: EssentialLinkProps[] = [
     link: '/ourfriends'
   }
 ];
+
+function onClick(link: EssentialLinkProps) {
+  if (link.external) {
+    window.open(link.link, '_blank', 'noopener');
+  } else {
+    router.push(link.link);
+  }
+}
 
 </script>
