@@ -22,37 +22,41 @@
         />
       </div>
       <div id="description" class="row">
-        <h4 id="description-text">Tantric Devotional New Age Acid Folk Feminist Goddess Grunge</h4>  
+        <h4 id="description-text">
+          Tantric Devotional New Age Acid Folk Feminist Goddess Grunge
+        </h4>  
       </div>
       
     </div>
     
-
-    
-    <div
-      v-for="track in tracks"
+    <q-infinite-scroll @load="onLoad" :offset="250">
+      <div
+      v-for="track in loadedTracks"
       :key="track[0]" class="row justify-center"
-    >
-      <TrackDetail
-        :title="track[0]"
-        :video_id="track[1]"
-        :caption="track[2]"
-        :cover_art="track[3]"
-      ></TrackDetail>
-    </div>
+      >
+        <TrackDetail
+          :title="track[0]"
+          :video_id="track[1]"
+          :caption="track[2]"
+          :cover_art="track[3]"
+        ></TrackDetail>
+      </div>
+    </q-infinite-scroll>
     
   </q-page>
 </template>
 
 <script setup lang="ts">
-import { onMounted, ref } from 'vue';
-import TrackDetail from 'src/components/TrackDetail.vue';
+import { onMounted, ref } from 'vue'
+import TrackDetail from 'src/components/TrackDetail.vue'
 
 const spreadsheetId = '1-2DJ1WPl7zfVbCKi5yr_IC7U_G43U-oSSkvTle17f5U'
-const apiKey = 'AIzaSyCFNzz0b7zqpgWvOtdY983CPs_84cHS2lk';
-const url = `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/Sheet1?key=${apiKey}`;
+const apiKey = 'AIzaSyCFNzz0b7zqpgWvOtdY983CPs_84cHS2lk'
+const url = `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/Sheet1?key=${apiKey}`
 
-const tracks = ref([]);
+const TRACKS_LOAD_BATCH = 10
+const tracks = ref([])
+const loadedTracks = ref([])
 
 async function fetchGoogleSheetData() {
   try {
@@ -63,14 +67,25 @@ async function fetchGoogleSheetData() {
     // Extract rows from the data
     const rows = data.values;
     tracks.value = rows.slice(1) // Skip the first row (headers)
+    // Load initial tracks
+    loadedTracks.value = tracks.value.slice(0, TRACKS_LOAD_BATCH)
   } catch (error) {
-      console.error('Error fetching Google Sheets data:', error);
+      console.error('Error fetching Google Sheets data:', error)
   }
+}
+
+function onLoad(index: number, done: () => void) {
+  const nextTracks = tracks.value.slice(
+    loadedTracks.value.length, loadedTracks.value.length + TRACKS_LOAD_BATCH
+  )
+  loadedTracks.value.push(...nextTracks)
+  done()
 }
 
 onMounted(() => { 
   fetchGoogleSheetData()
 })
+
 </script>
 
 <style scoped>

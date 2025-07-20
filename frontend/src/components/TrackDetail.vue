@@ -11,7 +11,6 @@
     <iframe
       class="q-mb-md video"
       :id="'video-' + props.video_id"
-      :src="'https://www.youtube.com/embed/' + props.video_id"
       frameborder="0"
       :style="{ display: showCover ? 'none' : '' }"
     >
@@ -52,8 +51,10 @@ let props = defineProps<{
 
 function playVideo() {
   showCover.value = !showCover.value;
-  const iframe = document.querySelector('#video-' + props.video_id) as HTMLIFrameElement;
-  iframe.src += '?autoplay=1';
+  const iframe = document.querySelector(
+    '#video-' + props.video_id
+  ) as HTMLIFrameElement
+  iframe.src = 'https://www.youtube.com/embed/' + props.video_id + '?autoplay=1'
 }
 
 </script>
