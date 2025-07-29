@@ -2,8 +2,8 @@
   <q-page class="">
     <div class="text-h3">Our Friends Make Lovely Sounds</div>
 
-    <div>Eostar Kamala- Eostar wrote Only Forgiveness and is featured on backup vocals on Bless The Lessons and In Our Time</div>
-    <div>Ananda Yogiji- Ananda is an original Sunheart booster. We love you!</div>
+    <div><a href="https://eostar.net/"></a>Eostar Kamala</a> Eostar wrote Only Forgiveness and is featured on backup vocals on Bless The Lessons and In Our Time</div>
+    <div><a href="https://tidal.com/browse/artist/5895786"Ananda Yogiji></a>- Ananda is an original Sunheart booster. We love you!</div>
     <div>Jaya Lakshmi</div>
     <div>Paloma Devi - angel voice</div>
     <div>Gurumukh Mark Harris - Mukh has been an inspiration for members of Sunheart since the 1970s!</div>
