@@ -2,7 +2,7 @@
   <q-page class="">
     <div class="text-h4">email <a href="mailto:davidsunheart@gmail.com">David Sunheart</a></div>
     <div><a href="mailto:davidsunheart@gmail.com">davidsunheart@gmail.com</a></div>
-    <div>or call 541-357-8632 (541) DJ-SUNDANCER</div>
+    <div>or call 541-514-4424 (leave a message, my phone doesn't answer calls that aren't in my contacts)</div>
   </q-page>
 </template>
 
