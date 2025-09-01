@@ -6,7 +6,7 @@
           src="/images/sunheartrainbowlogo.jpg"
         />
       </div>
-      <div class="text-h3">Our Friends Make Lovely Sounds</div>
+      <div class="text-h2">Our Friends Make Lovely Sounds</div>
       <div><a href="https://eostar.net/">Eostar Kamala</a> Eostar wrote Only Forgiveness and is featured on backup vocals on Bless The Lessons and In Our Time</div>
     <div><a href="https://tidal.com/browse/artist/5895786">Ananda Yogiji</a>- Ananda is an original Sunheart booster. We love you!</div>
     <div><a href="http://www.palomadevi.com/">Paloma Devi</a> - angel voice</div>
