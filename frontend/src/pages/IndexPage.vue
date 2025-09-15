@@ -26,13 +26,39 @@
           Tantric Devotional New Age Acid Folk Feminist Goddess Grunge
         </h4>  
       </div>
-      
     </div>
-    
+
+    <div class="q-my-md">
+      <div
+        id="song-dropdown"
+        class="row justify-center"
+      >
+        <q-btn-dropdown
+          label="Jump to Song"
+          icon="music_note"
+        >
+          <q-list>
+            <q-item
+              v-for="track in tracks"
+              :key="track[1]"
+              clickable
+              v-close-popup
+              @click="jumpToTrack(track[1])"
+            >
+              <q-item-section>
+                <q-item-label>{{ track[0] }}</q-item-label>
+              </q-item-section>
+            </q-item>
+          </q-list>
+        </q-btn-dropdown>
+      </div>
+    </div>
+
     <q-infinite-scroll @load="onLoad" :offset="250">
       <div
-      v-for="track in loadedTracks"
-      :key="track[0]" class="row justify-center"
+        v-for="track in loadedTracks"
+        :key="track[0]" class="row justify-center"
+        :id="'track-' + track[1]"
       >
         <TrackDetail
           :title="track[0]"
@@ -82,6 +108,13 @@ function onLoad(index: number, done: () => void) {
   done()
 }
 
+function jumpToTrack(videoId: string) {
+  const element = document.getElementById('track-' + videoId)
+  if (element) {
+    element.scrollIntoView({ behavior: 'smooth' })
+  }
+}
+
 onMounted(() => { 
   fetchGoogleSheetData()
 })
@@ -129,6 +162,12 @@ onMounted(() => {
       margin-bottom: 10px;
     }
   }
+}
+
+#song-dropdown {
+  max-width: 600px;
+  margin: auto;
+  color: white;
 }
 
 </style>
