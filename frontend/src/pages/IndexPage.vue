@@ -54,17 +54,27 @@
       </div>
     </div>
 
-    <q-infinite-scroll @load="onLoad" :offset="250">
+    <div v-if="showDetail" class="q-my-md row justify-center" id="track-detail">
+      <TrackDetail
+        ref="trackDetailComponent"
+        :title="song.title"
+        :video_id="song.youtubeId"
+        :caption="song.caption"
+        :cover_art="song.coverImageUrl"
+      ></TrackDetail>
+    </div>
+
+    <q-infinite-scroll @load="onLoad" :offset="250" v-if="!showDetail">
       <div
         v-for="track in loadedTracks"
         :key="track[0]" class="row justify-center"
-        :id="'track-' + track[1]"
+        :id="'track-' + track[2]"
       >
         <TrackDetail
           :title="track[0]"
-          :video_id="track[1]"
-          :caption="track[2]"
-          :cover_art="track[3]"
+          :video_id="track[2]"
+          :caption="track[3]"
+          :cover_art="track[4]"
         ></TrackDetail>
       </div>
     </q-infinite-scroll>
@@ -75,14 +85,32 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue'
 import TrackDetail from 'src/components/TrackDetail.vue'
+import HeroComponent from 'src/components/HeroComponent.vue'
+import { useRoute } from 'vue-router'
+import { Track } from 'src/types'
 
 const spreadsheetId = '1-2DJ1WPl7zfVbCKi5yr_IC7U_G43U-oSSkvTle17f5U'
 const apiKey = 'AIzaSyCFNzz0b7zqpgWvOtdY983CPs_84cHS2lk'
 const url = `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/Sheet1?key=${apiKey}`
+const trackDetailComponent = ref<InstanceType<typeof TrackDetail> | null>(null)
 
 const TRACKS_LOAD_BATCH = 10
 const tracks = ref([])
 const loadedTracks = ref([])
+const showDetail = ref(false)
+const route = useRoute()
+const songSlug = ref('')
+const song = ref<Track>({
+  title: '',
+  slug: '',
+  youtubeId: '',
+  caption: '',
+  coverImageUrl: ''
+} as Track)
+
+onMounted(() => {
+  songSlug.value = route.params.slug as string
+})
 
 async function fetchGoogleSheetData() {
   try {
@@ -108,10 +136,19 @@ function onLoad(index: number, done: () => void) {
   done()
 }
 
-function jumpToTrack(videoId: string) {
-  const element = document.getElementById('track-' + videoId)
-  if (element) {
-    element.scrollIntoView({ behavior: 'smooth' })
+function jumpToTrack(slug: string) {
+  trackDetailComponent.value?.resetVideo()
+  showDetail.value = true
+  songSlug.value = slug
+  const track = tracks.value.find((t) => t[1] === slug)
+  if (track) {
+    song.value = {
+      title: track[0],
+      slug: track[1],
+      youtubeId: track[2],
+      caption: track[3],
+      coverImageUrl: track[4]
+    } as Track
   }
 }
 

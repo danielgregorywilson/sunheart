@@ -57,4 +57,15 @@ function playVideo() {
   iframe.src = 'https://www.youtube.com/embed/' + props.video_id + '?autoplay=1'
 }
 
+// Make resetVideo available to parent component
+defineExpose({ resetVideo })
+
+function resetVideo() {
+  showCover.value = true;
+  const iframe = document.querySelector(
+    '#video-' + props.video_id
+  ) as HTMLIFrameElement
+  iframe.src = ''
+}
+
 </script>
