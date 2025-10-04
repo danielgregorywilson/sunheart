@@ -85,7 +85,6 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue'
 import TrackDetail from 'src/components/TrackDetail.vue'
-import HeroComponent from 'src/components/HeroComponent.vue'
 import { useRoute } from 'vue-router'
 import { Track } from 'src/types'
 
