@@ -107,10 +107,6 @@ const song = ref<Track>({
   coverImageUrl: ''
 } as Track)
 
-onMounted(() => {
-  songSlug.value = route.params.slug as string
-})
-
 async function fetchGoogleSheetData() {
   try {
     // Fetch data from Google Sheets API
@@ -139,6 +135,8 @@ function jumpToTrack(slug: string) {
   trackDetailComponent.value?.resetVideo()
   showDetail.value = true
   songSlug.value = slug
+  // Update the URL without reloading the page
+  window.history.replaceState(null, '', `/song/${slug}`)
   const track = tracks.value.find((t) => t[1] === slug)
   if (track) {
     song.value = {
@@ -152,7 +150,12 @@ function jumpToTrack(slug: string) {
 }
 
 onMounted(() => { 
-  fetchGoogleSheetData()
+  fetchGoogleSheetData().then(() => {
+    if (route.params.slug) {
+      songSlug.value = route.params.slug as string  
+      jumpToTrack(songSlug.value)
+    }
+  })
 })
 
 </script>
