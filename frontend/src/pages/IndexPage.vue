@@ -51,6 +51,13 @@
             </q-item>
           </q-list>
         </q-btn-dropdown>
+        <q-btn
+          v-if="showDetail"
+          class="q-ml-md"
+          label="Show All"
+          icon="list"
+          @click="resetToList"
+        />
       </div>
     </div>
 
@@ -147,6 +154,13 @@ function jumpToTrack(slug: string) {
       coverImageUrl: track[4]
     } as Track
   }
+}
+
+function resetToList() {
+  trackDetailComponent.value?.resetVideo()
+  showDetail.value = false
+  songSlug.value = ''
+  window.history.replaceState(null, '', '/')
 }
 
 onMounted(() => { 
