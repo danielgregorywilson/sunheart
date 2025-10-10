@@ -68,6 +68,7 @@
         :video_id="song.youtubeId"
         :caption="song.caption"
         :cover_art="song.coverImageUrl"
+        :detailed_description="song.detailedDescription"
       ></TrackDetail>
     </div>
 
@@ -111,7 +112,8 @@ const song = ref<Track>({
   slug: '',
   youtubeId: '',
   caption: '',
-  coverImageUrl: ''
+  coverImageUrl: '',
+  detailedDescription: ''
 } as Track)
 
 async function fetchGoogleSheetData() {
@@ -156,7 +158,8 @@ function jumpToTrack(slug: string) {
       slug: track[1],
       youtubeId: track[2],
       caption: track[3],
-      coverImageUrl: track[4]
+      coverImageUrl: track[4],
+      detailedDescription: track[5]
     } as Track
   }
 }

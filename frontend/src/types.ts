@@ -12,4 +12,5 @@ export type Track = {
   youtubeId: string;
   caption: string;
   coverImageUrl: string;
+  detailedDescription: string;
 };

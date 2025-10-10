@@ -1,6 +1,5 @@
 <template>
   <div class="q-mt-md q-px-md" style="max-width: 500px;">
-    <!-- <p>{{ title }}</p> -->
     <q-img 
       v-if="showCover"
       class="cover-art q-mb-md"
@@ -16,6 +15,8 @@
     >
     </iframe>
     <p class="track-caption q-mt-sm q-mb-md">{{ caption }}</p>
+    <hr v-if="detailed_description"/>
+    <p class="track-caption q-mt-sm q-mb-md">{{ detailed_description }}</p>
   </div>
 </template>
 
@@ -47,6 +48,7 @@ let props = defineProps<{
   video_id: string;
   caption: string;
   cover_art: string;
+  detailed_description?: string;
 }>()
 
 function playVideo() {
