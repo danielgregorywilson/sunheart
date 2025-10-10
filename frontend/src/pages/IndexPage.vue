@@ -39,7 +39,7 @@
         >
           <q-list>
             <q-item
-              v-for="track in tracks"
+              v-for="track in sortedTracks()"
               :key="track[1]"
               clickable
               v-close-popup
@@ -136,6 +136,11 @@ function onLoad(index: number, done: () => void) {
   )
   loadedTracks.value.push(...nextTracks)
   done()
+}
+
+function sortedTracks() {
+  // Alphabetically sort tracks by title
+  return tracks.value.slice().sort((a, b) => a[0] > b[0] ? 1 : -1)
 }
 
 function jumpToTrack(slug: string) {
